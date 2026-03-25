@@ -158,28 +158,6 @@ Licensed under Apache License 2.0.
 
 ---
 
-## How to build and run
-
-1. Restore and build solution (from repository root):
-
-```powershell
-dotnet restore
-dotnet build
-```		
-
-2. Run a sample / console debug app:
-
-```powershell
-dotnet run --project ..\NeraTool_ConsoleApp_DebugingServise\NeraTool_ConsoleApp_DebugingServise.csproj
-```
-
-3. For WPF panels open the solution in Visual Studio 2026 and set the desired startup project (e.g., `LogMonitorPanal`, `TaskMonitorPanal`, or `NeraTool_WPF_DebugingServise`).
-
----
-
-If you want, I can expand this single README into per-project README files with example code snippets (English + Persian) for each wrapper. Reply with: `Create per-project READMEs` to proceed.
-
-
 
 ## Examples
 <details open>
