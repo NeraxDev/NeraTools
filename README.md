@@ -27,13 +27,12 @@ git clone https://github.com/NeraxDev/NeraTools.git
 
 Download Releases
 
-Full package (DLL + tools)
 
-Download v0.1.0
+NeraTools v0.1.0 ZIP
 
 DLL only (not recommended, no extra tools)
 
-Download DLL
+NeraTools DLL
 
 Source code
 
