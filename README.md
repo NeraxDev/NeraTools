@@ -3,37 +3,17 @@
 This repository contains the `NeraTools` library and several helper applications targeting .NET 10.
 
 Below is a concise, organized reference of the high-level wrapper APIs (wrappers that call into core implementations).
-Each table lists the wrapper/group name, a short English description, a short Persian description, and the primary source file(s).
+Each table lists the wrapper/group name, a short English description, a short Persian description, and the primary source file(s) and Examples.
 
----
 
-## FolderOps (Folder operations wrappers)
-
-| Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) |
-|---|---|---|---|
-| `CreateFolder*` (sync & async) | Create single or multiple folders. | ساخت فولدر تک یا چندتایی. | `Folder Operations/Create Folder/Create Folder -API.cs`, `MakeFolder - Core.cs` |
-| `CopyFolder*`, `CopyFolders*` (sync & async) | Copy folders with filters (name/ext/size/date/attributes) and options. | کپی فولدرها با فیلترها و گزینه‌ها (بازنویسی، بکاپ، ...). | `Folder Operations/FileTransfer/Copy Folder/Folder Copy - API .cs`, `Folder Copy - CoreAPI.cs` |
-| `MoveFolder*`, `MoveFolders*` (sync & async) | Move (cut) folders; same filter/options as copy. | جابجایی (کات) فولدرها با فیلترها و گزینه‌ها. | `Folder Operations/FileTransfer/Move Folder/Move Folder - API.cs`, `Move Folder - CoreAPI.cs` |
-| `DeleteFolder*`, `DeleteFolders*` | Delete folders with options (backup, retry, recursive, logging). | حذف فولدرها با گزینه‌هایی مثل بکاپ، تکرار، حذف بازگشتی و لاگ. | `Folder Operations/Delete Folder/Delete Folder - API.cs`, `Delete Folder - CoreAPI.cs` |
-| `FolderTransfomOptions`, `FolderDeleteOptions` (enums) | Flags to control copy/move/delete behavior. | enumهای کنترل رفتار عملیات پوشه. | `Folder Operations/Enums/Enum_API.cs`, `Enums_Core.cs` |
-
----
-
-## FileOps (File operations wrappers)
-
-| Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) |
-|---|---|---|---|
-| `CreateFileFullPath`, `CreateFile`, `CreateFileFullPath_Async`, `CreateFile_Async` | Create files from full paths or directory + name. | ایجاد فایل از مسیر کامل یا مسیر+نام (همگام و ناهمگام). | `File Operations/File Operations - API.cs`, `File Operations/File Operations - Core.cs` |
-
----
 
 ## ProgramOps (Process execution & management)
 
-| Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) |
-|---|---|---|---|
-| `Run`, `RunAsync` | Run executables (single/multiple), optional delay and architecture variants (x64/x86). | اجرای برنامه‌ها با تأخیر و نسخهٔ معماری. | `Program Operations/Execte Program - API.cs`, `Execte Program - Core.cs` |
-| `TerminateByPath`, `TerminateByName`, `TerminateByPID` (sync & async) | Terminate processes by path, name or PID. | خاتمه فرایندها بر اساس مسیر، نام یا PID. | `Program Operations/Execte Program - API.cs` |
-| `GetPID`, `GetPIDAsync`, `isExitedByName*` | Query running processes and check existence. | یافتن PIDها و بررسی وجود فرایندها. | `Program Operations/Execte Program - API.cs` |
+| Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) | Example (see below) |
+|---|---|---|---|---|
+| `Run`, `RunAsync` | Run executables (single/multiple), optional delay and architecture variants (x64/x86). | اجرای برنامه‌ها با تأخیر و نسخهٔ معماری. | `Program Operations/Execte Program - API.cs`, `Execte Program - Core.cs` | [Example](#poe-run) [#POE1] |
+| `TerminateByPath`, `TerminateByName`, `TerminateByPID` (sync & async) | Terminate processes by path, name or PID. | خاتمه فرایندها بر اساس مسیر، نام یا PID. | `Program Operations/Execte Program - API.cs` | [Example](#poe-term) [#POE6] |
+| `GetPID`, `GetPIDAsync`, `isExitedByName*` | Query running processes and check existence. | یافتن PIDها و بررسی وجود فرایندها. | `Program Operations/Execte Program - API.cs` | [Example](#poe-getpid) [#POE8] |
 
 ---
 
@@ -72,7 +52,27 @@ Each table lists the wrapper/group name, a short English description, a short Pe
 | `DisableLoggerSystem()` | Immediately disable logger system and cancel internal operations. | غیرفعال‌سازی فوری سیستم لاگر و کنسل‌کردن عملیات داخلی. | `LogManager/Logging - API.cs` | [Example](#lm-disable) [#LME8] |
 
 ---
+---
 
+## FolderOps (Folder operations wrappers)
+
+| Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) |
+|---|---|---|---|
+| `CreateFolder*` (sync & async) | Create single or multiple folders. | ساخت فولدر تک یا چندتایی. | `Folder Operations/Create Folder/Create Folder -API.cs`, `MakeFolder - Core.cs` |
+| `CopyFolder*`, `CopyFolders*` (sync & async) | Copy folders with filters (name/ext/size/date/attributes) and options. | کپی فولدرها با فیلترها و گزینه‌ها (بازنویسی، بکاپ، ...). | `Folder Operations/FileTransfer/Copy Folder/Folder Copy - API .cs`, `Folder Copy - CoreAPI.cs` |
+| `MoveFolder*`, `MoveFolders*` (sync & async) | Move (cut) folders; same filter/options as copy. | جابجایی (کات) فولدرها با فیلترها و گزینه‌ها. | `Folder Operations/FileTransfer/Move Folder/Move Folder - API.cs`, `Move Folder - CoreAPI.cs` |
+| `DeleteFolder*`, `DeleteFolders*` | Delete folders with options (backup, retry, recursive, logging). | حذف فولدرها با گزینه‌هایی مثل بکاپ، تکرار، حذف بازگشتی و لاگ. | `Folder Operations/Delete Folder/Delete Folder - API.cs`, `Delete Folder - CoreAPI.cs` |
+| `FolderTransfomOptions`, `FolderDeleteOptions` (enums) | Flags to control copy/move/delete behavior. | enumهای کنترل رفتار عملیات پوشه. | `Folder Operations/Enums/Enum_API.cs`, `Enums_Core.cs` |
+
+---
+
+## FileOps (File operations wrappers)
+
+| Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) |
+|---|---|---|---|
+| `CreateFileFullPath`, `CreateFile`, `CreateFileFullPath_Async`, `CreateFile_Async` | Create files from full paths or directory + name. | ایجاد فایل از مسیر کامل یا مسیر+نام (همگام و ناهمگام). | `File Operations/File Operations - API.cs`, `File Operations/File Operations - Core.cs` |
+
+---
 ## Other notable files & helpers
 
 - `___InDebugTime/__Debug__.cs` — debug helpers used during development.
@@ -296,10 +296,180 @@ If you want, I can expand this single README into per-project README files with 
 ---
 
 <details open>
+  <summary>ProgramOps Examples</summary>
+
+### Full ProgramOps examples
+
+<a id="poe-run"></a>
+<details>
+  <summary>[#POE1] Run programs (sync)</summary>
+  - Run a single program synchronously and inspect the result. Also demonstrates running multiple paths at once and basic error handling:
+
+  ```csharp
+  using System;
+
+  // Run single executable synchronously
+  ProcessRunResult res = NeraTools.ProgramOps.Run("C:\\Tools\\myApp.exe");
+  Console.WriteLine($"Success: {res.Success}, ExitCode: {res.ExitCode}");
+
+  // Run multiple executables synchronously
+  var list = new List<string> { "C:\\Tools\\a.exe", "C:\\Tools\\b.exe" };
+  ProcessRunResult multi = NeraTools.ProgramOps.Run(list);
+  Console.WriteLine($"Launched count: {multi?.LaunchedCount ?? 0}");
+  ```
+</details>
+
+<a id="poe-run-async"></a>
+<details>
+  <summary>[#POE2] Run programs (awaitable async)</summary>
+  - Awaitable run using the TaskSchedulerEngine. Demonstrates cancellation handling, timeout pattern and result inspection:
+
+  ```csharp
+  using System;
+  using System.Threading;
+  using System.Threading.Tasks;
+
+  CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)); // auto-timeout
+  try
+  {
+      ProcessRunResult result = await NeraTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", cts.Token);
+      Console.WriteLine($"ExitCode: {result.ExitCode}, Success: {result.Success}");
+  }
+  catch (OperationCanceledException)
+  {
+      Console.WriteLine("Run was canceled or timed out");
+  }
+  catch (Exception ex)
+  {
+      Console.WriteLine($"Run failed: {ex.Message}");
+  }
+  ```
+</details>
+
+<a id="poe-run-fire"></a>
+<details>
+  <summary>[#POE3] Run programs (fire-and-forget via scheduler)</summary>
+  - Schedule a background run with priority (no await). Useful for non-blocking workflows and background tasks:
+
+  ```csharp
+  // Fire-and-forget scheduled run with mid priority
+  NeraTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", ePriorityLevel.MidLevel);
+
+  // Keep in mind: use CancellationToken overload if you may need to cancel later.
+  ```
+</details>
+
+<a id="poe-run-delay"></a>
+<details>
+  <summary>[#POE4] Run programs after a delay</summary>
+  - Examples for delayed execution, both sync and awaitable async. Demonstrates common use: staged startup.
+
+  ```csharp
+  // Synchronous delayed run (start after 5 seconds)
+  ProcessRunResult delayed = NeraTools.ProgramOps.Run("C:\\Tools\\myApp.exe", 5);
+  Console.WriteLine($"Delayed launched: {delayed.Success}");
+
+  // Async delayed run with cancellation support
+  var delayedAsync = await NeraTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", 5, CancellationToken.None);
+  Console.WriteLine($"Delayed exit code: {delayedAsync.ExitCode}");
+  ```
+</details>
+
+<a id="poe-run-arch"></a>
+<details>
+  <summary>[#POE5] Run architecture-specific executables</summary>
+  - Provide separate binaries for x64 and x86; API picks appropriate one based on OS bitness. Shows both sync and async usage and fallback idea:
+
+  ```csharp
+  // Synchronous: provide x64 and x86 paths
+  var archRes = NeraTools.ProgramOps.Run("C:\\Bin\\app-x64.exe", "C:\\Bin\\app-x86.exe");
+  Console.WriteLine($"Picked variant launched: {archRes.Success}");
+
+  // Async variant (with cancellation)
+  var archAsync = await NeraTools.ProgramOps.RunAsync("C:\\Bin\\app-x64.exe", "C:\\Bin\\app-x86.exe", CancellationToken.None);
+  Console.WriteLine($"Async picked exit code: {archAsync.ExitCode}");
+  ```
+</details>
+
+<a id="poe-term"></a>
+<details>
+  <summary>[#POE6] Terminate processes (by path/name/PID) synchronously</summary>
+  - Examples showing common termination patterns and examining results. Use `isJustNow` to force immediate kill when necessary:
+
+  ```csharp
+  // Terminate by process name
+  var byName = NeraTools.ProgramOps.TerminateByName("notepad.exe");
+  Console.WriteLine($"Terminated by name success: {byName.Success}");
+
+  // Terminate by exact executable path
+  var byPath = NeraTools.ProgramOps.TerminateByPath("C:\\Tools\\myApp.exe");
+  Console.WriteLine($"Terminated by path: {byPath.Success}");
+
+  // Terminate by PID (force immediate)
+  var byPid = NeraTools.ProgramOps.TerminateByPID(12345, isJustNow: true);
+  Console.WriteLine($"Terminated PID result: {byPid.Success}");
+  ```
+</details>
+
+<a id="poe-term-async"></a>
+<details>
+  <summary>[#POE7] Terminate processes asynchronously (awaitable and scheduled)</summary>
+  - Awaitable termination with cancellation and scheduled (fire-and-forget) termination with priority. Shows checking return details:
+
+  ```csharp
+  // Awaitable termination with cancellation
+  CancellationTokenSource ctsTerm = new CancellationTokenSource();
+  try
+  {
+      var asyncTerm = await NeraTools.ProgramOps.TerminateByNameAsync("notepad.exe", ctsTerm.Token);
+      Console.WriteLine($"Async terminate success: {asyncTerm.Success}, Count: {asyncTerm.TerminatedCount}");
+  }
+  catch (OperationCanceledException) { Console.WriteLine("Termination canceled"); }
+
+  // Schedule termination in background (no await) with priority
+  NeraTools.ProgramOps.TerminateByPathAsync("C:\\Tools\\myApp.exe", ePriorityLevel.MidLevel);
+  ```
+</details>
+
+<a id="poe-getpid"></a>
+<details>
+  <summary>[#POE8] Get running process IDs (sync & async)</summary>
+  - Examples showing how to retrieve and iterate PIDs and use path-based filtering:
+
+  ```csharp
+  // Synchronous lookup by name
+  List<int> pids = NeraTools.ProgramOps.GetPID("notepad.exe");
+  foreach (var pid in pids) Console.WriteLine($"Found PID: {pid}");
+
+  // Asynchronous lookup
+  var apids = await NeraTools.ProgramOps.GetPIDAsync("notepad.exe", CancellationToken.None);
+  Console.WriteLine($"Async found {apids.Count} instances");
+  ```
+</details>
+
+<a id="poe-isexisted"></a>
+<details>
+  <summary>[#POE9] Check whether an app is running (sync & async)</summary>
+  - Use boolean checks to verify running state; includes cancellation example for async check and a typical usage pattern:
+
+  ```csharp
+  // Synchronous check
+  bool exists = NeraTools.ProgramOps.isExitedByName("notepad.exe");
+  Console.WriteLine($"Notepad running: {exists}");
+
+  // Asynchronous check with cancellation token and timeout
+  CancellationTokenSource cts2 = new CancellationTokenSource(TimeSpan.FromSeconds(3));
+  bool aexists = await NeraTools.ProgramOps.isExitedByNameAsync("notepad.exe", cts2.Token);
+  Console.WriteLine($"Async notepad running: {aexists}");
+  ```
+</details>
+
+---
+
+<details open>
   <summary>Logging Examples</summary>
 
 ### Full Logging examples
-
 <a id="lm-log"></a>
 <details>
   <summary>[#LME1] Log a user application message</summary>
