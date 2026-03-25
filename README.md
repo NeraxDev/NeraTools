@@ -105,7 +105,7 @@ If you want, I can expand this single README into per-project README files with 
 ### Full TaskManager examples
  
 <a id="tm-runasync-t"></a>
-<details open>
+<details>
   <summary>Run an async task that returns a value</summary>
   - Run an async task that returns a value (await and get result). Use priority and cancellation:
 
@@ -130,7 +130,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-runasync"></a>
-<details open>
+<details>
   <summary>Run an async task without result</summary>
   - Run an async task without result (fire-and-forget) and await it if needed:
 
@@ -152,7 +152,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-runsyncasasync-t"></a>
-<details open>
+<details>
   <summary>Convert a synchronous function to async with result</summary>
   - Convert a CPU-bound synchronous function to an async task and await the result:
 
@@ -173,7 +173,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-runsyncasasync"></a>
-<details open>
+<details>
   <summary>Run a synchronous action as background task</summary>
   - Run a synchronous action as a background task (fire-and-forget):
 
@@ -185,7 +185,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-setthreads-bypercent"></a>
-<details open>
+<details>
   <summary>Set thread pool usage by CPU percentage</summary>
   - Set thread pool usage by CPU percentage (example uses predefined enum value):
 
@@ -196,7 +196,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-setthreads-bycore"></a>
-<details open>
+<details>
   <summary>Set threads count based on CPU cores</summary>
   - Set threads count based on CPU cores:
 
@@ -207,7 +207,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-setthreads-bythreads"></a>
-<details open>
+<details>
   <summary>Set exact number of worker threads</summary>
   - Set exact number of worker threads:
 
@@ -217,7 +217,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-shutdown-immediate"></a>
-<details open>
+<details>
   <summary>Immediate shutdown and cancel tasks</summary>
   - Immediate shutdown and cancel all running tasks:
 
@@ -227,7 +227,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-shutdown-graceful"></a>
-<details open>
+<details>
   <summary>Graceful shutdown with timeout</summary>
   - Graceful shutdown with timeout in seconds (waits up to given seconds):
 
@@ -238,7 +238,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-getrunningcount"></a>
-<details open>
+<details>
   <summary>Get running task count</summary>
   - Get number of currently running tasks:
 
@@ -249,7 +249,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-taskmonitor"></a>
-<details open>
+<details>
   <summary>Start/stop the console task monitor</summary>
   - Start and stop the console task monitor. The boolean parameter indicates start(true)/stop(false).
 
@@ -267,7 +267,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-setdelay-ms"></a>
-<details open>
+<details>
   <summary>Configure scheduler delays (ms)</summary>
   - Configure scheduler delays in milliseconds:
 
@@ -278,7 +278,7 @@ If you want, I can expand this single README into per-project README files with 
 </details>
 
 <a id="tm-setdelay-sec"></a>
-<details open>
+<details>
   <summary>Configure scheduler delays (sec)</summary>
   - Configure scheduler delays in seconds (wrapper over ms method):
 
