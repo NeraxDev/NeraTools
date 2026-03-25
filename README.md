@@ -28,15 +28,15 @@ git clone https://github.com/NeraxDev/NeraTools.git
 Download Releases
 
 
-NeraTools v0.1.0 ZIP
+- **Full package (DLL + tools)**  
+[NeraTools v0.1.0 ZIP](https://github.com/NeraxDev/NeraTools/releases/download/v0.1.0/NeraTools.v0.1.0.zip)
 
-DLL only (not recommended, no extra tools)
+- **DLL only (not recommended, no extra tools)**  
+[NeraTools DLL](https://github.com/NeraxDev/NeraTools/releases/download/v0.1.0/NeraTools_notRecommend.dll)
 
-NeraTools DLL
+- **Source code**
+[ZIP](https://github.com/NeraxDev/NeraTools/archive/refs/tags/v0.1.0.zip)  | [TAR.GZ](https://github.com/NeraxDev/NeraTools/archive/refs/tags/v0.1.0.tar.gz)
 
-Source code
-
-ZIP | TAR.GZ
 
 Clone for latest development
 
