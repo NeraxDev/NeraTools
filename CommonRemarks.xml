@@ -1,0 +1,35 @@
+﻿<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>NeraTools</name>
+	</assembly>
+	<members>
+		<member name="T:CommonRemarks.Async_Warning">
+			<summary>⚠️ This method runs "pseudo-async"</summary>
+			<remarks>
+				⚠️ This method runs "pseudo-async": it does not create real OS-managed asynchronous threads.
+				Instead, operations are executed on a single background thread or a limited thread pool.
+
+				Technical details:
+				- Tasks are executed sequentially or via a SemaphoreSlim-limited concurrency.
+				- The method uses async/await only to avoid blocking the caller thread.
+				- Long-running operations may still block system resources if overused.
+				- For true OS-level async I/O, additional API or native async file operations are required.
+
+				Deletes folders according to filters.
+				⚠️ Async-Like Methods Notice:
+				This method uses TaskManager to limit concurrency and is not a true async/parallel operation.
+				You can control the maximum number of threads with one of these TaskManager methods:
+				- NeraTools.TaskManager.SetThreadsCount_ByPercent(ThreadUsagePercent percent)
+				- NeraTools.TaskManager.SetThreadsCount_ByCore(int coreCount)
+				- NeraTools.TaskManager.SetThreadsCount_ByThreads(int threadCount)
+
+				Important:
+				- Thread limits apply to this type of async-like operations only and must be set before calling them.
+				- Setting too many threads may reduce performance; too few may slow down execution.
+			</remarks>
+		</member>
+	</members>
+</doc>
+
+<!--USE =>      <include file='CommonRemarks.xml' path='doc/members/member[@name="T:CommonRemarks.ParallelAsyncWarning"]/*' />-->

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/AnotherTools/">
+    <Project Path="../LogMonitorPanal/LogMonitorPanal.csproj" />
+    <Project Path="../TaskMonitorPanal/TaskMonitorPanal.csproj" Id="7a4633fe-e995-4cdb-a5e6-87541a950703" />
+  </Folder>
+  <Folder Name="/For Test &amp; Debug/">
+    <Project Path="../NeraTool_ConsoleApp_DebugingServise/NeraTool_ConsoleApp_DebugingServise.csproj" />
+    <Project Path="../NeraTool_WPF_DebugingServise/NeraTool_WPF_DebugingServise.csproj" />
+  </Folder>
+  <Project Path="NeraTools.csproj" />
+</Solution>
