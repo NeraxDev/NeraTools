@@ -1,10 +1,10 @@
-NeraTools
+## NeraTools
 
 NeraTools is a lightweight, evolving collection of high-performance utilities for system management, logging, and async task handling in .NET.
 
 It is designed to cover common developer needs and provides tools that are not available by default in .NET.
 
-🚀 Features
+- 🚀 Features
 System and Process Management – Tools for monitoring, controlling, and managing processes and system operations.
 
 Logging and Operation Management – Track and manage events and system operations for easier debugging and analysis.
@@ -44,7 +44,7 @@ git clone https://github.com/NeraxDev/NeraTools.git
 
 NuGet --> Coming soon…
 
-🧠 Usage
+- 🧠 Usage
 Example: Get Process IDs
 var processIds = await ProcessTools.GetProcessIdsAsync(new[] { "chrome", "notepad" });
 
@@ -53,30 +53,38 @@ foreach (var id in processIds)
     Console.WriteLine(id);
 }
 
-This is just a simple example. Other tools, including logging and async task management, are already included, and more general-purpose utilities will be added over time.
+This is just a simple example. Other tools, including event logging and asynchronous task management, are already included, and other examples are at the end of the file, and more general-purpose tools will be added over time.
 
-⚙️ Why NeraTools?
+- ⚙️ Why NeraTools?
 
 Unlike basic libraries, NeraTools focuses on:
 
 High performance and system management
+
 Logging and operation management
+
 Async task queuing and safe execution
+
 Useful general-purpose developer utilities
-📌 Roadmap
+
+- 📌 Roadmap
+
 Add more system utilities
+
 Improve current performance
+
 Add unit tests
+
 Expand documentation
-Prepare NuGet package
-🤝 Contributing
+
+- 🤝 Contributing
 
 This project is still evolving, and more tools will be added over time.
 
 If you are an interested developer and want to help improve NeraTools, your contributions are very welcome. You can submit pull requests or open an issue to suggest improvements or new features. Every contribution helps make NeraTools better for everyone. 
 Thanks 💞
 
-📜 License
+- 📜 License
 
 Licensed under Apache License 2.0.
 پ

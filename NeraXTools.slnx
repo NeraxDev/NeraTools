@@ -7,5 +7,5 @@
     <Project Path="../NeraTool_ConsoleApp_DebugingServise/NeraTool_ConsoleApp_DebugingServise.csproj" />
     <Project Path="../NeraTool_WPF_DebugingServise/NeraTool_WPF_DebugingServise.csproj" />
   </Folder>
-  <Project Path="NeraTools.csproj" />
+  <Project Path="NeraXTools.csproj" />
 </Solution>
