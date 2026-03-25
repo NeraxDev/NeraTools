@@ -41,49 +41,69 @@ Each table lists the wrapper/group name, a short English description, a short Pe
 
 | Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) | Example (see below) |
 |---|---|---|---|---|
-| `RunAsync<T>(Func<CancellationToken, Task<T>>)` | Runs an async task that returns a result; scheduled with priority. | اجرای تسک ناهمگام با مقدار خروجی و زمان‌بندی براساس اولویت. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `RunAsync(Func<CancellationToken, Task>)` | Runs an async task without result (fire-and-forget or awaited). | اجرای تسک ناهمگام بدون خروجی (Fire-and-forget یا با await). | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `RunSyncAsAsync<T>(Func<T>)` | Converts a synchronous function into a scheduled async task returning a value. | تبدیل تابع همگام به تسک ناهمگام و بازگرداندن مقدار. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `RunSyncAsAsync(Action)` | Converts a synchronous Action into a scheduled async task (no result). | تبدیل اکشن همگام به تسک ناهمگام بدون خروجی. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `SetThreadsCountByPercen(eThreadUsagePercent)` | Configure thread pool usage based on CPU percentage for adaptive scaling. | تعیین میزان استفاده از رشته‌ها بر اساس درصد مصرف CPU. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `SetThreadsCountByCore(int)` | Set worker thread count based on CPU core count. | تنظیم تعداد رشته‌ها بر اساس تعداد هسته‌ها. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `SetThreadsCountByThreads(int)` | Set exact number of worker threads. | تنظیم دقیق تعداد رشته‌های کاری. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `ShutdownNeraToolImmediate()` | Immediately cancel all tasks and stop the engine. | خاموش‌سازی فوری موتور و کنسل‌کردن همه تسک‌ها. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `ShutdownNeraToolGracefulAsync(int)` | Graceful shutdown: wait for running/queued tasks to finish (optional timeout). | خاموش‌سازی تدریجی با امکان تعیین زمان انتظار برای اتمام تسک‌ها. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `GetRunningTaskCount()` | Returns number of currently running tasks. | تعداد تسک‌های درحال اجرا را برمی‌گرداند. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `TaskMonitor(bool, int, CancellationToken)` | Start/stop console task monitor with refresh interval. | شروع/توقف نمایشگر کنسول تسک‌ها با نرخ به‌روزرسانی. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs`, `TaskManager/TaskMonitorConsoleCore.cs` | [See example](#taskmanager-examples) |
-| `SetDelayTimeMilliseconds(int activeMs, int idleMs, int maxIdleMs)` | Configure scheduler delays in milliseconds for active/idle states. | تنظیم تاخیر زمان‌بندی‌کننده به میلی‌ثانیه برای حالات فعال و بیکاری. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
-| `SetDelayTimeSeconds(int activeSec, int idleSec, int maxIdleSec)` | Configure scheduler delays in seconds (wrapper over ms method). | تنظیم تاخیر زمان‌بندی‌کننده به ثانیه (شبه‌رپ) بر پایه متد میلی‌ثانیه. | `TaskManager/TaskManager - API.cs`, `TaskManager/TaskManager - Core.cs` | [See example](#taskmanager-examples) |
+| `RunAsync<T>(Func<CancellationToken, Task<T>>)` | Runs an async task that returns a result; scheduled with priority. | اجرای تسک ناهمگام با مقدار خروجی و زمان‌بندی براساس اولویت. | `TaskManager/TaskManager - API.cs` | [Example](#tm-runasync-t) |
+| `RunAsync(Func<CancellationToken, Task>)` | Runs an async task without result (fire-and-forget or awaited). | اجرای تسک ناهمگام بدون خروجی (Fire-and-forget یا با await). | `TaskManager/TaskManager - API.cs` | [Example](#tm-runasync) |
+| `RunSyncAsAsync<T>(Func<T>)` | Converts a synchronous function into a scheduled async task returning a value. | تبدیل تابع همگام به تسک ناهمگام و بازگرداندن مقدار. | `TaskManager/TaskManager - API.cs` | [Example](#tm-runsyncasasync-t) |
+| `RunSyncAsAsync(Action)` | Converts a synchronous Action into a scheduled async task (no result). | تبدیل اکشن همگام به تسک ناهمگام بدون خروجی. | `TaskManager/TaskManager - API.cs` | [Example](#tm-runsyncasasync) |
+| `SetThreadsCountByPercen(eThreadUsagePercent)` | Configure thread pool usage based on CPU percentage for adaptive scaling. | تعیین میزان استفاده از رشته‌ها بر اساس درصد مصرف CPU. | `TaskManager/TaskManager - API.cs` | [Example](#tm-setthreads-bypercent) |
+| `SetThreadsCountByCore(int)` | Set worker thread count based on CPU core count. | تنظیم تعداد رشته‌ها بر اساس تعداد هسته‌ها. | `TaskManager/TaskManager - API.cs` | [Example](#tm-setthreads-bycore) |
+| `SetThreadsCountByThreads(int)` | Set exact number of worker threads. | تنظیم دقیق تعداد رشته‌های کاری. | `TaskManager/TaskManager - API.cs` | [Example](#tm-setthreads-bythreads) |
+| `ShutdownNeraToolImmediate()` | Immediately cancel all tasks and stop the engine. | خاموش‌سازی فوری موتور و کنسل‌کردن همه تسک‌ها. | `TaskManager/TaskManager - API.cs` | [Example](#tm-shutdown-immediate) |
+| `ShutdownNeraToolGracefulAsync(int)` | Graceful shutdown: wait for running/queued tasks to finish (optional timeout). | خاموش‌سازی تدریجی با امکان تعیین زمان انتظار برای اتمام تسک‌ها. | `TaskManager/TaskManager - API.cs` | [Example](#tm-shutdown-graceful) |
+| `GetRunningTaskCount()` | Returns number of currently running tasks. | تعداد تسک‌های درحال اجرا را برمی‌گرداند. | `TaskManager/TaskManager - API.cs` | [Example](#tm-getrunningcount) |
+| `TaskMonitor(bool, int, CancellationToken)` | Start/stop console task monitor with refresh interval. | شروع/توقف نمایشگر کنسول تسک‌ها با نرخ به‌روزرسانی. | `TaskManager/TaskManager - API.cs` | [Example](#tm-taskmonitor) |
+| `SetDelayTimeMilliseconds(int activeMs, int idleMs, int maxIdleMs)` | Configure scheduler delays in milliseconds for active/idle states. | تنظیم تاخیر زمان‌بندی‌کننده به میلی‌ثانیه برای حالات فعال و بیکاری. | `TaskManager/TaskManager - API.cs` | [Example](#tm-setdelay-ms) |
+| `SetDelayTimeSeconds(int activeSec, int idleSec, int maxIdleSec)` | Configure scheduler delays in seconds (wrapper over ms method). | تنظیم تاخیر زمان‌بندی‌کننده به ثانیه (شبه‌رپ) بر پایه متد میلی‌ثانیه. | `TaskManager/TaskManager - API.cs` | [Example](#tm-setdelay-sec) |
 
 ---
 
-<a id="taskmanager-examples"></a>
-Examples / مثال‌ها
 
-- Run an async task that returns a value (await and get result):
+
+### Full TaskManager examples
+
+<a id="tm-runasync-t"></a>
+- Run an async task that returns a value (await and get result). Use priority and cancellation:
 
 ```csharp
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+CancellationTokenSource cts = new CancellationTokenSource();
 int result = await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync<int>(
     async token =>
     {
+        // Simulate work
         await Task.Delay(1000, token);
         return 42;
-    });
+    },
+    ePriorityLevel.HighLevel,
+    cts.Token);
+
+Console.WriteLine($"Result: {result}");
 ```
 
-- Run a fire-and-forget async task:
+<a id="tm-runasync"></a>
+- Run an async task without result (fire-and-forget) and await it if needed:
 
 ```csharp
+// Fire-and-forget
 _ = NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
     async ct =>
     {
         await Task.Delay(2000, ct);
-        // background work
+        Console.WriteLine("Background work completed");
     },
     ePriorityLevel.MidLevel);
+
+// Or await when you need to wait
+await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
+    async ct => await Task.Delay(500, ct),
+    ePriorityLevel.LowLevel);
 ```
 
-- Convert a CPU-bound synchronous function to an async task and await result:
+<a id="tm-runsyncasasync-t"></a>
+- Convert a CPU-bound synchronous function to an async task and await the result:
 
 ```csharp
 int sum = await NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync<int>(
@@ -91,11 +111,17 @@ int sum = await NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync<int>(
     {
         int a = 10;
         int b = 20;
+        // Heavy CPU work simulation
+        for (int i = 0; i < 1_000_000; i++) { a += (i & 1); }
         return a + b;
-    });
+    },
+    ePriorityLevel.MidLevel);
+
+Console.WriteLine($"Sum: {sum}");
 ```
 
-- Run a synchronous action as background task (fire-and-forget):
+<a id="tm-runsyncasasync"></a>
+- Run a synchronous action as a background task (fire-and-forget):
 
 ```csharp
 NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync(
@@ -103,11 +129,83 @@ NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync(
     ePriorityLevel.LowLevel);
 ```
 
-- Graceful shutdown example (wait up to 5 seconds):
+<a id="tm-setthreads-bypercent"></a>
+- Set thread pool usage by CPU percentage (example uses predefined enum value):
+
+```csharp
+// Example enum: eThreadUsagePercent.Perc50
+NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByPercen(eThreadUsagePercent.Perc50);
+```
+
+<a id="tm-setthreads-bycore"></a>
+- Set threads count based on CPU cores:
+
+```csharp
+int logicalCores = Environment.ProcessorCount;
+NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByCore(logicalCores);
+```
+
+<a id="tm-setthreads-bythreads"></a>
+- Set exact number of worker threads:
+
+```csharp
+NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByThreads(8);
+```
+
+<a id="tm-shutdown-immediate"></a>
+- Immediate shutdown and cancel all running tasks:
+
+```csharp
+NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolImmediate();
+```
+
+<a id="tm-shutdown-graceful"></a>
+- Graceful shutdown with timeout in seconds (waits up to given seconds):
 
 ```csharp
 bool stopped = await NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolGracefulAsync(5);
+Console.WriteLine($"Stopped gracefully: {stopped}");
 ```
+
+<a id="tm-getrunningcount"></a>
+- Get number of currently running tasks:
+
+```csharp
+int running = NeraTools.TaskManager.TaskSchedulerEngine.GetRunningTaskCount();
+Console.WriteLine($"Running tasks: {running}");
+```
+
+<a id="tm-taskmonitor"></a>
+- Start and stop the console task monitor. The boolean parameter indicates start(true)/stop(false).
+
+```csharp
+using System.Threading;
+
+CancellationTokenSource monitorCts = new CancellationTokenSource();
+// Start monitor with 1000 ms refresh interval
+NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(true, 1000, monitorCts.Token);
+
+// ... later stop
+monitorCts.Cancel();
+NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(false, 0, CancellationToken.None);
+```
+
+<a id="tm-setdelay-ms"></a>
+- Configure scheduler delays in milliseconds:
+
+```csharp
+// activeMs, idleMs, maxIdleMs
+NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeMilliseconds(50, 200, 2000);
+```
+
+<a id="tm-setdelay-sec"></a>
+- Configure scheduler delays in seconds (wrapper over ms method):
+
+```csharp
+// activeSec, idleSec, maxIdleSec
+NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeSeconds(0, 1, 5);
+```
+
 ---
 
 ## Logger / LogManager (Logging wrappers)
