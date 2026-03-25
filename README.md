@@ -1,9 +1,71 @@
-# NeraTools
+NeraTools
 
-This repository contains the `NeraTools` library and several helper applications targeting .NET 10.
+NeraTools is a lightweight, evolving collection of high-performance utilities for system management, logging, and async task handling in .NET.
 
-Below is a concise, organized reference of the high-level wrapper APIs (wrappers that call into core implementations).
-Each table lists the wrapper/group name, a short English description, a short Persian description, and the primary source file(s) and Examples.
+It is designed to cover common developer needs and provides tools that are not available by default in .NET.
+
+🚀 Features
+System and Process Management – Tools for monitoring, controlling, and managing processes and system operations.
+Logging and Operation Management – Track and manage events and system operations for easier debugging and analysis.
+Async Task Queuing and Execution – Full async task management with queuing and fine-grained execution control, similar to the built-in Async system but with more flexibility.
+General Developer Utilities – A collection of useful helper functions for everyday programming tasks that are not natively provided in .NET.
+Lightweight and Optimized – Designed to minimize resource usage, suitable for scalable and scheduled applications.
+Compatible with .NET 10 – Optimized for performance and fully compatible with the latest .NET versions.
+📦 Installation
+Clone the Repository
+git clone https://github.com/NeraxDev/NeraTools.git
+Download Releases
+Full package (DLL + tools)
+Download v0.1.0
+DLL only (not recommended, no extra tools)
+Download DLL
+Source code
+ZIP
+ | TAR.GZ
+Clone for latest development
+git clone https://github.com/NeraxDev/NeraTools.git
+NuGet
+
+Coming soon…
+
+🧠 Usage
+Example: Get Process IDs
+var processIds = await ProcessTools.GetProcessIdsAsync(new[] { "chrome", "notepad" });
+
+foreach (var id in processIds)
+{
+    Console.WriteLine(id);
+}
+
+This is just a simple example. Other tools, including logging and async task management, are already included, and more general-purpose utilities will be added over time.
+
+⚙️ Why NeraTools?
+
+Unlike basic libraries, NeraTools focuses on:
+
+High performance and system management
+Logging and operation management
+Async task queuing and safe execution
+Useful general-purpose developer utilities
+📌 Roadmap
+Add more system utilities
+Improve current performance
+Add unit tests
+Expand documentation
+Prepare NuGet package
+🤝 Contributing
+
+This project is still evolving, and more tools will be added over time.
+
+If you are an interested developer and want to help improve NeraTools, your contributions are very welcome. You can submit pull requests or open an issue to suggest improvements or new features. Every contribution helps make NeraTools better for everyone. 
+Thanks 💞
+
+📜 License
+
+Licensed under Apache License 2.0.
+پ
+
+
 
 
 
