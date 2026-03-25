@@ -57,157 +57,7 @@ Each table lists the wrapper/group name, a short English description, a short Pe
 
 ---
 
-
-
-### Full TaskManager examples
-
-<a id="tm-runasync-t"></a>
-- Run an async task that returns a value (await and get result). Use priority and cancellation:
-
-```csharp
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-CancellationTokenSource cts = new CancellationTokenSource();
-int result = await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync<int>(
-    async token =>
-    {
-        // Simulate work
-        await Task.Delay(1000, token);
-        return 42;
-    },
-    ePriorityLevel.HighLevel,
-    cts.Token);
-
-Console.WriteLine($"Result: {result}");
-```
-
-<a id="tm-runasync"></a>
-- Run an async task without result (fire-and-forget) and await it if needed:
-
-```csharp
-// Fire-and-forget
-_ = NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
-    async ct =>
-    {
-        await Task.Delay(2000, ct);
-        Console.WriteLine("Background work completed");
-    },
-    ePriorityLevel.MidLevel);
-
-// Or await when you need to wait
-await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
-    async ct => await Task.Delay(500, ct),
-    ePriorityLevel.LowLevel);
-```
-
-<a id="tm-runsyncasasync-t"></a>
-- Convert a CPU-bound synchronous function to an async task and await the result:
-
-```csharp
-int sum = await NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync<int>(
-    () =>
-    {
-        int a = 10;
-        int b = 20;
-        // Heavy CPU work simulation
-        for (int i = 0; i < 1_000_000; i++) { a += (i & 1); }
-        return a + b;
-    },
-    ePriorityLevel.MidLevel);
-
-Console.WriteLine($"Sum: {sum}");
-```
-
-<a id="tm-runsyncasasync"></a>
-- Run a synchronous action as a background task (fire-and-forget):
-
-```csharp
-NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync(
-    () => Console.WriteLine("Background logging"),
-    ePriorityLevel.LowLevel);
-```
-
-<a id="tm-setthreads-bypercent"></a>
-- Set thread pool usage by CPU percentage (example uses predefined enum value):
-
-```csharp
-// Example enum: eThreadUsagePercent.Perc50
-NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByPercen(eThreadUsagePercent.Perc50);
-```
-
-<a id="tm-setthreads-bycore"></a>
-- Set threads count based on CPU cores:
-
-```csharp
-int logicalCores = Environment.ProcessorCount;
-NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByCore(logicalCores);
-```
-
-<a id="tm-setthreads-bythreads"></a>
-- Set exact number of worker threads:
-
-```csharp
-NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByThreads(8);
-```
-
-<a id="tm-shutdown-immediate"></a>
-- Immediate shutdown and cancel all running tasks:
-
-```csharp
-NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolImmediate();
-```
-
-<a id="tm-shutdown-graceful"></a>
-- Graceful shutdown with timeout in seconds (waits up to given seconds):
-
-```csharp
-bool stopped = await NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolGracefulAsync(5);
-Console.WriteLine($"Stopped gracefully: {stopped}");
-```
-
-<a id="tm-getrunningcount"></a>
-- Get number of currently running tasks:
-
-```csharp
-int running = NeraTools.TaskManager.TaskSchedulerEngine.GetRunningTaskCount();
-Console.WriteLine($"Running tasks: {running}");
-```
-
-<a id="tm-taskmonitor"></a>
-- Start and stop the console task monitor. The boolean parameter indicates start(true)/stop(false).
-
-```csharp
-using System.Threading;
-
-CancellationTokenSource monitorCts = new CancellationTokenSource();
-// Start monitor with 1000 ms refresh interval
-NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(true, 1000, monitorCts.Token);
-
-// ... later stop
-monitorCts.Cancel();
-NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(false, 0, CancellationToken.None);
-```
-
-<a id="tm-setdelay-ms"></a>
-- Configure scheduler delays in milliseconds:
-
-```csharp
-// activeMs, idleMs, maxIdleMs
-NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeMilliseconds(50, 200, 2000);
-```
-
-<a id="tm-setdelay-sec"></a>
-- Configure scheduler delays in seconds (wrapper over ms method):
-
-```csharp
-// activeSec, idleSec, maxIdleSec
-NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeSeconds(0, 1, 5);
-```
-
----
-
+ 
 ## Logger / LogManager (Logging wrappers)
 
 | Wrapper / Methods | English (short) | فارسی (کوتاه) | Source file(s) |
@@ -246,3 +96,196 @@ dotnet run --project ..\NeraTool_ConsoleApp_DebugingServise\NeraTool_ConsoleApp_
 
 If you want, I can expand this single README into per-project README files with example code snippets (English + Persian) for each wrapper. Reply with: `Create per-project READMEs` to proceed.
 
+
+
+## Examples
+<details open>
+  <summary>TaskManager Examples</summary>
+
+### Full TaskManager examples
+ 
+<a id="tm-runasync-t"></a>
+<details open>
+  <summary>Run an async task that returns a value</summary>
+  - Run an async task that returns a value (await and get result). Use priority and cancellation:
+
+  ```csharp
+  using System;
+  using System.Threading;
+  using System.Threading.Tasks;
+
+  CancellationTokenSource cts = new CancellationTokenSource();
+  int result = await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync<int>(
+      async token =>
+      {
+          // Simulate work
+          await Task.Delay(1000, token);
+          return 42;
+      },
+      ePriorityLevel.HighLevel,
+      cts.Token);
+
+  Console.WriteLine($"Result: {result}");
+  ```
+</details>
+
+<a id="tm-runasync"></a>
+<details open>
+  <summary>Run an async task without result</summary>
+  - Run an async task without result (fire-and-forget) and await it if needed:
+
+  ```csharp
+  // Fire-and-forget
+  _ = NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
+      async ct =>
+      {
+          await Task.Delay(2000, ct);
+          Console.WriteLine("Background work completed");
+      },
+      ePriorityLevel.MidLevel);
+
+  // Or await when you need to wait
+  await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
+      async ct => await Task.Delay(500, ct),
+      ePriorityLevel.LowLevel);
+  ```
+</details>
+
+<a id="tm-runsyncasasync-t"></a>
+<details open>
+  <summary>Convert a synchronous function to async with result</summary>
+  - Convert a CPU-bound synchronous function to an async task and await the result:
+
+  ```csharp
+  int sum = await NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync<int>(
+      () =>
+      {
+          int a = 10;
+          int b = 20;
+          // Heavy CPU work simulation
+          for (int i = 0; i < 1_000_000; i++) { a += (i & 1); }
+          return a + b;
+      },
+      ePriorityLevel.MidLevel);
+
+  Console.WriteLine($"Sum: {sum}");
+  ```
+</details>
+
+<a id="tm-runsyncasasync"></a>
+<details open>
+  <summary>Run a synchronous action as background task</summary>
+  - Run a synchronous action as a background task (fire-and-forget):
+
+  ```csharp
+  NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync(
+      () => Console.WriteLine("Background logging"),
+      ePriorityLevel.LowLevel);
+  ```
+</details>
+
+<a id="tm-setthreads-bypercent"></a>
+<details open>
+  <summary>Set thread pool usage by CPU percentage</summary>
+  - Set thread pool usage by CPU percentage (example uses predefined enum value):
+
+  ```csharp
+  // Example enum: eThreadUsagePercent.Perc50
+  NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByPercen(eThreadUsagePercent.Perc50);
+  ```
+</details>
+
+<a id="tm-setthreads-bycore"></a>
+<details open>
+  <summary>Set threads count based on CPU cores</summary>
+  - Set threads count based on CPU cores:
+
+  ```csharp
+  int logicalCores = Environment.ProcessorCount;
+  NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByCore(logicalCores);
+  ```
+</details>
+
+<a id="tm-setthreads-bythreads"></a>
+<details open>
+  <summary>Set exact number of worker threads</summary>
+  - Set exact number of worker threads:
+
+  ```csharp
+  NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByThreads(8);
+  ```
+</details>
+
+<a id="tm-shutdown-immediate"></a>
+<details open>
+  <summary>Immediate shutdown and cancel tasks</summary>
+  - Immediate shutdown and cancel all running tasks:
+
+  ```csharp
+  NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolImmediate();
+  ```
+</details>
+
+<a id="tm-shutdown-graceful"></a>
+<details open>
+  <summary>Graceful shutdown with timeout</summary>
+  - Graceful shutdown with timeout in seconds (waits up to given seconds):
+
+  ```csharp
+  bool stopped = await NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolGracefulAsync(5);
+  Console.WriteLine($"Stopped gracefully: {stopped}");
+  ```
+</details>
+
+<a id="tm-getrunningcount"></a>
+<details open>
+  <summary>Get running task count</summary>
+  - Get number of currently running tasks:
+
+  ```csharp
+  int running = NeraTools.TaskManager.TaskSchedulerEngine.GetRunningTaskCount();
+  Console.WriteLine($"Running tasks: {running}");
+  ```
+</details>
+
+<a id="tm-taskmonitor"></a>
+<details open>
+  <summary>Start/stop the console task monitor</summary>
+  - Start and stop the console task monitor. The boolean parameter indicates start(true)/stop(false).
+
+  ```csharp
+  using System.Threading;
+
+  CancellationTokenSource monitorCts = new CancellationTokenSource();
+  // Start monitor with 1000 ms refresh interval
+  NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(true, 1000, monitorCts.Token);
+
+  // ... later stop
+  monitorCts.Cancel();
+  NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(false, 0, CancellationToken.None);
+  ```
+</details>
+
+<a id="tm-setdelay-ms"></a>
+<details open>
+  <summary>Configure scheduler delays (ms)</summary>
+  - Configure scheduler delays in milliseconds:
+
+  ```csharp
+  // activeMs, idleMs, maxIdleMs
+  NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeMilliseconds(50, 200, 2000);
+  ```
+</details>
+
+<a id="tm-setdelay-sec"></a>
+<details open>
+  <summary>Configure scheduler delays (sec)</summary>
+  - Configure scheduler delays in seconds (wrapper over ms method):
+
+  ```csharp
+  // activeSec, idleSec, maxIdleSec
+  NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeSeconds(0, 1, 5);
+  ```
+</details>
+
+---
