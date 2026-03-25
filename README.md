@@ -1,4 +1,4 @@
-NeraTools
+## NeraxTools
 
 NeraTools is a lightweight, evolving collection of high-performance utilities for system management, logging, and async task handling in .NET.
 
