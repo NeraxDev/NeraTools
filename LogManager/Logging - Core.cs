@@ -210,7 +210,7 @@ namespace NeraXTools.LogManager
             if (string.IsNullOrWhiteSpace(folderPath))
                 folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
             if (!Directory.Exists(filename))
-                FolderOps.CreateFolderFullPath(folderPath);
+                _ = FolderOps.CreateFolder(folderPath);
 
             string nameWithoutExt = Path.GetFileNameWithoutExtension(filename);
             string fileName = nameWithoutExt + ".json";
@@ -248,7 +248,7 @@ namespace NeraXTools.LogManager
             if (string.IsNullOrWhiteSpace(folderPath))
                 folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
             if (!Directory.Exists(filename))
-                FolderOps.CreateFolderFullPath(folderPath);
+                FolderOps.CreateFolder(folderPath);
             string nameWithoutExt = Path.GetFileNameWithoutExtension(filename);
             string fileName = nameWithoutExt + ".txt";
             string fullPath = Path.Combine(folderPath, fileName);

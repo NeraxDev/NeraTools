@@ -2,16 +2,19 @@
 {
     internal static partial class FolderOpsCore
     {
-        private static async Task MakeFolder_Core(
-                                  Func<string, Task> makeDir,
+        private static async Task<Result> MakeFolder_Core(
+                                  Func<string, Task<bool>> makeDir,
                                   List<string> folderPaths,
-                                  List<string> folderNames = null)
+                                  List<string>? folderNames,
+                                  IProgress<float> p)
+
         {
             List<string> pathsToCreate = new List<string>();
+            int _successCount = 0;
+            int _failedCount = 0;
 
             try
             {
-                // Case: only folder paths provided, no folder names
                 if (folderNames == null)
                 {
                     foreach (var path in folderPaths)
@@ -42,8 +45,11 @@
                         //Logger.log("Folder creation input count mismatch. Please provide correct counts.", false, Log_Type_Error);
                     }
                 }
-                foreach (var dir in pathsToCreate)
-                    await makeDir(dir);
+                for (int i = 0; i < pathsToCreate.Count; i++)
+                {
+                    if (await makeDir(pathsToCreate[i])) _successCount++; else _failedCount++;
+                    p?.Report((float)Math.Round(((double)(i + 1) / pathsToCreate.Count) * 100f, 2));
+                }
             }
             catch (Exception ex)
             {
@@ -65,6 +71,12 @@
                     //Logger.log($"Error combining path '{basePath}' with folder name '{folderName}': {ex.Message}", false, Log_Type_Error);
                 }
             }
+            return new Result
+            {
+                Success = _failedCount == 0 ? true : false,
+                SuccessCount = _successCount,
+                FailedCount = _failedCount,
+            };
         }
     }
 }

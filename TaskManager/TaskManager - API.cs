@@ -133,7 +133,7 @@
         ///         int b = 20;
         ///         return a + b;
         ///     },
-        ///     PriorityLevel.HighLevel);
+        ///     token);
         /// ]]>
         /// </summary>
         /// <typeparam name="T">
