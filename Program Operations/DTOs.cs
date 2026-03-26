@@ -1,4 +1,4 @@
-﻿namespace NeraTools
+﻿namespace NeraXTools
 {
     public sealed class ProcessRunResult
     {

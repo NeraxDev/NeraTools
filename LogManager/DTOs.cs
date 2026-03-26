@@ -1,4 +1,4 @@
-﻿namespace NeraTools.LogManager
+﻿namespace NeraXTools.LogManager
 {
     public class LogDTO
     {

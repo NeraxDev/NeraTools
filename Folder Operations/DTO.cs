@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NeraXTools.TaskManager.Apps
+namespace NeraXTools
 {
-    internal class test
+    internal class DTO
     {
     }
 }

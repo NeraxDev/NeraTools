@@ -1,4 +1,4 @@
-﻿namespace NeraTools.TaskManager
+﻿namespace NeraXTools.TaskManager
 {
     /// <summary>
     /// Provides static methods for scheduling, executing, and managing asynchronous and synchronous tasks with

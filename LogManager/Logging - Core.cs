@@ -1,10 +1,10 @@
-﻿using NeraTools.TaskManager;
+﻿using NeraXTools.TaskManager;
 using System.IO.Pipes;
 using System.Text;
 using System.Text.Json;
-using NeraTools.LogManager.Apps;
+using NeraXTools.LogManager.Apps;
 
-namespace NeraTools.LogManager
+namespace NeraXTools.LogManager
 {
     internal static partial class Logger_Core
     {

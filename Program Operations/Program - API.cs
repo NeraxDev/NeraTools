@@ -1,8 +1,8 @@
 ﻿// TODO: اینجا مشکل اساسی دارم در بخش ایسنک ها که متد متد های غیر ایسنک رو داخل ران ایسنک استفاده مینکیم ولی باید از تسک ران ایسینک بای سینک استفاده کنیم کوگر نه مشکل میخوریم چون ایمجا متد خای سینک نیستن و باید داخل ترید جدید اجرا شن
 
-using NeraTools.TaskManager;
+using NeraXTools.TaskManager;
 
-namespace NeraTools
+namespace NeraXTools
 {
     /// <summary>
     /// Provides high level API for process execution and termination operations.

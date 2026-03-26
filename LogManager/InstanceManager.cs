@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NeraTools.LogManager
+namespace NeraXTools.LogManager
 {
     internal static partial class Logger_Core
     {

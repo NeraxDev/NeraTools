@@ -1,4 +1,4 @@
-﻿namespace NeraTools
+﻿namespace NeraXTools
 {
     public static partial class FolderOps
     {
@@ -405,4 +405,4 @@
 
         public static Task MoveFolderWith_CreationDateRange_Async(string sourcePath, string destinationPath, DateTime startDate, DateTime endDate, params FolderTransfomOptions[] options) => FolderOpsCore.Move_Async(new List<string> { sourcePath }, new List<string> { destinationPath }, FolderOpsCore.Transform_Options.Copy, null, null, 0, long.MaxValue, startDate, endDate, null, null, null, null, options);
     } // end of Folder_Ops class
-} // end of NeraTools namespace
+} // end of NeraXTools namespace

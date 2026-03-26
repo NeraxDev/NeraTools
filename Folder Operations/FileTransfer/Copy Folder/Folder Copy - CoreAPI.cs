@@ -1,7 +1,7 @@
-﻿using NeraTools.TaskManager;
-using static NeraTools.FolderOps;
+﻿using NeraXTools.TaskManager;
+using static NeraXTools.FolderOps;
 
-namespace NeraTools
+namespace NeraXTools
 {
     internal static partial class FolderOpsCore
     {

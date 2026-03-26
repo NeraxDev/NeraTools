@@ -1,6 +1,6 @@
-## NeraTools
+## NeraXTools
 
-NeraTools is a lightweight, evolving collection of high-performance utilities for system management, logging, and async task handling in .NET.
+NeraXTools is a lightweight, evolving collection of high-performance utilities for system management, logging, and async task handling in .NET.
 
 It is designed to cover common developer needs and provides tools that are not available by default in .NET.
 
@@ -22,25 +22,25 @@ Compatible with .NET 10 – Optimized for performance and fully compatible with 
 
 Clone the Repository
 
-git clone https://github.com/NeraxDev/NeraTools.git
+git clone https://github.com/NeraxDev/NeraXTools.git
 
 
 Download Releases
 
 
 - **Full package (DLL + tools)**  
-[NeraTools v0.1.0 ZIP](https://github.com/NeraxDev/NeraTools/releases/download/v0.1.0/NeraTools.v0.1.0.zip)
+[NeraXTools v0.1.0 ZIP](https://github.com/NeraxDev/NeraXTools/releases/download/v0.1.0/NeraXTools.v0.1.0.zip)
 
 - **DLL only (not recommended, no extra tools)**  
-[NeraTools DLL](https://github.com/NeraxDev/NeraTools/releases/download/v0.1.0/NeraTools_notRecommend.dll)
+[NeraXTools DLL](https://github.com/NeraxDev/NeraXTools/releases/download/v0.1.0/NeraXTools_notRecommend.dll)
 
 - **Source code**
-[ZIP](https://github.com/NeraxDev/NeraTools/archive/refs/tags/v0.1.0.zip)  | [TAR.GZ](https://github.com/NeraxDev/NeraTools/archive/refs/tags/v0.1.0.tar.gz)
+[ZIP](https://github.com/NeraxDev/NeraXTools/archive/refs/tags/v0.1.0.zip)  | [TAR.GZ](https://github.com/NeraxDev/NeraXTools/archive/refs/tags/v0.1.0.tar.gz)
 
 
 Clone for latest development
 
-git clone https://github.com/NeraxDev/NeraTools.git
+git clone https://github.com/NeraxDev/NeraXTools.git
 
 NuGet --> Coming soon…
 
@@ -55,9 +55,9 @@ foreach (var id in processIds)
 
 This is just a simple example. Other tools, including event logging and asynchronous task management, are already included, and other examples are at the end of the file, and more general-purpose tools will be added over time.
 
-- ⚙️ Why NeraTools?
+- ⚙️ Why NeraXTools?
 
-Unlike basic libraries, NeraTools focuses on:
+Unlike basic libraries, NeraXTools focuses on:
 
 High performance and system management
 
@@ -81,7 +81,7 @@ Expand documentation
 
 This project is still evolving, and more tools will be added over time.
 
-If you are an interested developer and want to help improve NeraTools, your contributions are very welcome. You can submit pull requests or open an issue to suggest improvements or new features. Every contribution helps make NeraTools better for everyone. 
+If you are an interested developer and want to help improve NeraXTools, your contributions are very welcome. You can submit pull requests or open an issue to suggest improvements or new features. Every contribution helps make NeraXTools better for everyone. 
 Thanks 💞
 
 - 📜 License
@@ -184,7 +184,7 @@ Licensed under Apache License 2.0.
   using System.Threading.Tasks;
 
   CancellationTokenSource cts = new CancellationTokenSource();
-  int result = await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync<int>(
+  int result = await NeraXTools.TaskManager.TaskSchedulerEngine.RunAsync<int>(
       async token =>
       {
           // Simulate work
@@ -205,7 +205,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Fire-and-forget
-  _ = NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
+  _ = NeraXTools.TaskManager.TaskSchedulerEngine.RunAsync(
       async ct =>
       {
           await Task.Delay(2000, ct);
@@ -214,7 +214,7 @@ Licensed under Apache License 2.0.
       ePriorityLevel.MidLevel);
 
   // Or await when you need to wait
-  await NeraTools.TaskManager.TaskSchedulerEngine.RunAsync(
+  await NeraXTools.TaskManager.TaskSchedulerEngine.RunAsync(
       async ct => await Task.Delay(500, ct),
       ePriorityLevel.LowLevel);
   ```
@@ -226,7 +226,7 @@ Licensed under Apache License 2.0.
   - Convert a CPU-bound synchronous function to an async task and await the result:
 
   ```csharp
-  int sum = await NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync<int>(
+  int sum = await NeraXTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync<int>(
       () =>
       {
           int a = 10;
@@ -247,7 +247,7 @@ Licensed under Apache License 2.0.
   - Run a synchronous action as a background task (fire-and-forget):
 
   ```csharp
-  NeraTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync(
+  NeraXTools.TaskManager.TaskSchedulerEngine.RunSyncAsAsync(
       () => Console.WriteLine("Background logging"),
       ePriorityLevel.LowLevel);
   ```
@@ -260,7 +260,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Example enum: eThreadUsagePercent.Perc50
-  NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByPercen(eThreadUsagePercent.Perc50);
+  NeraXTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByPercen(eThreadUsagePercent.Perc50);
   ```
 </details>
 
@@ -271,7 +271,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   int logicalCores = Environment.ProcessorCount;
-  NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByCore(logicalCores);
+  NeraXTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByCore(logicalCores);
   ```
 </details>
 
@@ -281,7 +281,7 @@ Licensed under Apache License 2.0.
   - Set exact number of worker threads:
 
   ```csharp
-  NeraTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByThreads(8);
+  NeraXTools.TaskManager.TaskSchedulerEngine.SetThreadsCountByThreads(8);
   ```
 </details>
 
@@ -291,7 +291,7 @@ Licensed under Apache License 2.0.
   - Immediate shutdown and cancel all running tasks:
 
   ```csharp
-  NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolImmediate();
+  NeraXTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolImmediate();
   ```
 </details>
 
@@ -301,7 +301,7 @@ Licensed under Apache License 2.0.
   - Graceful shutdown with timeout in seconds (waits up to given seconds):
 
   ```csharp
-  bool stopped = await NeraTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolGracefulAsync(5);
+  bool stopped = await NeraXTools.TaskManager.TaskSchedulerEngine.ShutdownNeraToolGracefulAsync(5);
   Console.WriteLine($"Stopped gracefully: {stopped}");
   ```
 </details>
@@ -312,7 +312,7 @@ Licensed under Apache License 2.0.
   - Get number of currently running tasks:
 
   ```csharp
-  int running = NeraTools.TaskManager.TaskSchedulerEngine.GetRunningTaskCount();
+  int running = NeraXTools.TaskManager.TaskSchedulerEngine.GetRunningTaskCount();
   Console.WriteLine($"Running tasks: {running}");
   ```
 </details>
@@ -327,11 +327,11 @@ Licensed under Apache License 2.0.
 
   CancellationTokenSource monitorCts = new CancellationTokenSource();
   // Start monitor with 1000 ms refresh interval
-  NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(true, 1000, monitorCts.Token);
+  NeraXTools.TaskManager.TaskSchedulerEngine.TaskMonitor(true, 1000, monitorCts.Token);
 
   // ... later stop
   monitorCts.Cancel();
-  NeraTools.TaskManager.TaskSchedulerEngine.TaskMonitor(false, 0, CancellationToken.None);
+  NeraXTools.TaskManager.TaskSchedulerEngine.TaskMonitor(false, 0, CancellationToken.None);
   ```
 </details>
 
@@ -342,7 +342,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // activeMs, idleMs, maxIdleMs
-  NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeMilliseconds(50, 200, 2000);
+  NeraXTools.TaskManager.TaskSchedulerEngine.SetDelayTimeMilliseconds(50, 200, 2000);
   ```
 </details>
 
@@ -353,7 +353,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // activeSec, idleSec, maxIdleSec
-  NeraTools.TaskManager.TaskSchedulerEngine.SetDelayTimeSeconds(0, 1, 5);
+  NeraXTools.TaskManager.TaskSchedulerEngine.SetDelayTimeSeconds(0, 1, 5);
   ```
 </details>
 
@@ -373,12 +373,12 @@ Licensed under Apache License 2.0.
   using System;
 
   // Run single executable synchronously
-  ProcessRunResult res = NeraTools.ProgramOps.Run("C:\\Tools\\myApp.exe");
+  ProcessRunResult res = NeraXTools.ProgramOps.Run("C:\\Tools\\myApp.exe");
   Console.WriteLine($"Success: {res.Success}, ExitCode: {res.ExitCode}");
 
   // Run multiple executables synchronously
   var list = new List<string> { "C:\\Tools\\a.exe", "C:\\Tools\\b.exe" };
-  ProcessRunResult multi = NeraTools.ProgramOps.Run(list);
+  ProcessRunResult multi = NeraXTools.ProgramOps.Run(list);
   Console.WriteLine($"Launched count: {multi?.LaunchedCount ?? 0}");
   ```
 </details>
@@ -396,7 +396,7 @@ Licensed under Apache License 2.0.
   CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)); // auto-timeout
   try
   {
-      ProcessRunResult result = await NeraTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", cts.Token);
+      ProcessRunResult result = await NeraXTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", cts.Token);
       Console.WriteLine($"ExitCode: {result.ExitCode}, Success: {result.Success}");
   }
   catch (OperationCanceledException)
@@ -417,7 +417,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Fire-and-forget scheduled run with mid priority
-  NeraTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", ePriorityLevel.MidLevel);
+  NeraXTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", ePriorityLevel.MidLevel);
 
   // Keep in mind: use CancellationToken overload if you may need to cancel later.
   ```
@@ -430,11 +430,11 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Synchronous delayed run (start after 5 seconds)
-  ProcessRunResult delayed = NeraTools.ProgramOps.Run("C:\\Tools\\myApp.exe", 5);
+  ProcessRunResult delayed = NeraXTools.ProgramOps.Run("C:\\Tools\\myApp.exe", 5);
   Console.WriteLine($"Delayed launched: {delayed.Success}");
 
   // Async delayed run with cancellation support
-  var delayedAsync = await NeraTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", 5, CancellationToken.None);
+  var delayedAsync = await NeraXTools.ProgramOps.RunAsync("C:\\Tools\\myApp.exe", 5, CancellationToken.None);
   Console.WriteLine($"Delayed exit code: {delayedAsync.ExitCode}");
   ```
 </details>
@@ -446,11 +446,11 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Synchronous: provide x64 and x86 paths
-  var archRes = NeraTools.ProgramOps.Run("C:\\Bin\\app-x64.exe", "C:\\Bin\\app-x86.exe");
+  var archRes = NeraXTools.ProgramOps.Run("C:\\Bin\\app-x64.exe", "C:\\Bin\\app-x86.exe");
   Console.WriteLine($"Picked variant launched: {archRes.Success}");
 
   // Async variant (with cancellation)
-  var archAsync = await NeraTools.ProgramOps.RunAsync("C:\\Bin\\app-x64.exe", "C:\\Bin\\app-x86.exe", CancellationToken.None);
+  var archAsync = await NeraXTools.ProgramOps.RunAsync("C:\\Bin\\app-x64.exe", "C:\\Bin\\app-x86.exe", CancellationToken.None);
   Console.WriteLine($"Async picked exit code: {archAsync.ExitCode}");
   ```
 </details>
@@ -462,15 +462,15 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Terminate by process name
-  var byName = NeraTools.ProgramOps.TerminateByName("notepad.exe");
+  var byName = NeraXTools.ProgramOps.TerminateByName("notepad.exe");
   Console.WriteLine($"Terminated by name success: {byName.Success}");
 
   // Terminate by exact executable path
-  var byPath = NeraTools.ProgramOps.TerminateByPath("C:\\Tools\\myApp.exe");
+  var byPath = NeraXTools.ProgramOps.TerminateByPath("C:\\Tools\\myApp.exe");
   Console.WriteLine($"Terminated by path: {byPath.Success}");
 
   // Terminate by PID (force immediate)
-  var byPid = NeraTools.ProgramOps.TerminateByPID(12345, isJustNow: true);
+  var byPid = NeraXTools.ProgramOps.TerminateByPID(12345, isJustNow: true);
   Console.WriteLine($"Terminated PID result: {byPid.Success}");
   ```
 </details>
@@ -485,13 +485,13 @@ Licensed under Apache License 2.0.
   CancellationTokenSource ctsTerm = new CancellationTokenSource();
   try
   {
-      var asyncTerm = await NeraTools.ProgramOps.TerminateByNameAsync("notepad.exe", ctsTerm.Token);
+      var asyncTerm = await NeraXTools.ProgramOps.TerminateByNameAsync("notepad.exe", ctsTerm.Token);
       Console.WriteLine($"Async terminate success: {asyncTerm.Success}, Count: {asyncTerm.TerminatedCount}");
   }
   catch (OperationCanceledException) { Console.WriteLine("Termination canceled"); }
 
   // Schedule termination in background (no await) with priority
-  NeraTools.ProgramOps.TerminateByPathAsync("C:\\Tools\\myApp.exe", ePriorityLevel.MidLevel);
+  NeraXTools.ProgramOps.TerminateByPathAsync("C:\\Tools\\myApp.exe", ePriorityLevel.MidLevel);
   ```
 </details>
 
@@ -502,11 +502,11 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Synchronous lookup by name
-  List<int> pids = NeraTools.ProgramOps.GetPID("notepad.exe");
+  List<int> pids = NeraXTools.ProgramOps.GetPID("notepad.exe");
   foreach (var pid in pids) Console.WriteLine($"Found PID: {pid}");
 
   // Asynchronous lookup
-  var apids = await NeraTools.ProgramOps.GetPIDAsync("notepad.exe", CancellationToken.None);
+  var apids = await NeraXTools.ProgramOps.GetPIDAsync("notepad.exe", CancellationToken.None);
   Console.WriteLine($"Async found {apids.Count} instances");
   ```
 </details>
@@ -518,12 +518,12 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Synchronous check
-  bool exists = NeraTools.ProgramOps.isExitedByName("notepad.exe");
+  bool exists = NeraXTools.ProgramOps.isExitedByName("notepad.exe");
   Console.WriteLine($"Notepad running: {exists}");
 
   // Asynchronous check with cancellation token and timeout
   CancellationTokenSource cts2 = new CancellationTokenSource(TimeSpan.FromSeconds(3));
-  bool aexists = await NeraTools.ProgramOps.isExitedByNameAsync("notepad.exe", cts2.Token);
+  bool aexists = await NeraXTools.ProgramOps.isExitedByNameAsync("notepad.exe", cts2.Token);
   Console.WriteLine($"Async notepad running: {aexists}");
   ```
 </details>
@@ -540,7 +540,7 @@ Licensed under Apache License 2.0.
   - Basic usage: log a message with default type (Info):
 
   ```csharp
-  NeraTools.LogManager.Logger.log("Application started", eLogType.Info);
+  NeraXTools.LogManager.Logger.log("Application started", eLogType.Info);
   ```
 </details>
 
@@ -550,7 +550,7 @@ Licensed under Apache License 2.0.
   - Use for internal/framework diagnostics:
 
   ```csharp
-  NeraTools.LogManager.Logger.logForThisTool("Background service initialized", eLogType.Debug);
+  NeraXTools.LogManager.Logger.logForThisTool("Background service initialized", eLogType.Debug);
   ```
 </details>
 
@@ -560,10 +560,10 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Enable console log output
-  NeraTools.LogManager.Logger.writeLogInConsole(true);
+  NeraXTools.LogManager.Logger.writeLogInConsole(true);
 
   // Disable console log output
-  NeraTools.LogManager.Logger.writeLogInConsole(false);
+  NeraXTools.LogManager.Logger.writeLogInConsole(false);
   ```
 </details>
 
@@ -572,7 +572,7 @@ Licensed under Apache License 2.0.
   <summary>[#LME4] Enable/disable UI logging</summary>
 
   ```csharp
-  NeraTools.LogManager.Logger.writeLogInUi(true);
+  NeraXTools.LogManager.Logger.writeLogInUi(true);
   ```
 </details>
 
@@ -582,7 +582,7 @@ Licensed under Apache License 2.0.
   - Enable JSON logging and set location/name:
 
   ```csharp
-  NeraTools.LogManager.Logger.writeLogInJsonFile(true, "C:\\Logs", "AppLog");
+  NeraXTools.LogManager.Logger.writeLogInJsonFile(true, "C:\\Logs", "AppLog");
   ```
 </details>
 
@@ -591,7 +591,7 @@ Licensed under Apache License 2.0.
   <summary>[#LME6] Write logs to text file</summary>
 
   ```csharp
-  NeraTools.LogManager.Logger.writeLogInTextFile(true, "C:\\Logs", "AppLogText");
+  NeraXTools.LogManager.Logger.writeLogInTextFile(true, "C:\\Logs", "AppLogText");
   ```
 </details>
 
@@ -601,7 +601,7 @@ Licensed under Apache License 2.0.
 
   ```csharp
   // Disable automatic offline mode
-  NeraTools.LogManager.Logger.AutoOfflinetion(false);
+  NeraXTools.LogManager.Logger.AutoOfflinetion(false);
   ```
 </details>
 
@@ -610,7 +610,7 @@ Licensed under Apache License 2.0.
   <summary>[#LME8] Disable logger system immediately</summary>
 
   ```csharp
-  NeraTools.LogManager.Logger.DisableLoggerSystem();
+  NeraXTools.LogManager.Logger.DisableLoggerSystem();
   ```
 </details>
 

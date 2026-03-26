@@ -1,4 +1,4 @@
-﻿namespace NeraTools.TaskManager.Apps
+﻿namespace NeraXTools.TaskManager.Apps
 {
     internal static class Appslocations
     {

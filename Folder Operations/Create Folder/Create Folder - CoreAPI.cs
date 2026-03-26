@@ -1,6 +1,6 @@
-﻿using NeraTools.TaskManager;
+﻿using NeraXTools.TaskManager;
 
-namespace NeraTools
+namespace NeraXTools
 {
     internal static partial class FolderOpsCore
     {
@@ -22,4 +22,4 @@ namespace NeraTools
             await MakeFolder_Core(fileOp, folderPaths, folderNames);
         }
     } // end of Folder_Ops class
-} // end of NeraTools namespace
+} // end of NeraXTools namespace

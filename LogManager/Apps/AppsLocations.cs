@@ -1,4 +1,4 @@
-﻿namespace NeraTools.LogManager.Apps
+﻿namespace NeraXTools.LogManager.Apps
 {
     internal class AppsLocations
     {

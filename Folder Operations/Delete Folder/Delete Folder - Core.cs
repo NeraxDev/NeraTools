@@ -1,6 +1,6 @@
-﻿using NeraTools.LogManager;
+﻿using NeraXTools.LogManager;
 
-namespace NeraTools
+namespace NeraXTools
 {
     internal static partial class FolderOpsCore
     {

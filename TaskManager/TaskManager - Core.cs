@@ -1,5 +1,5 @@
 ﻿/// Hack : ============================================================================
-/// ⚠️ HACK NOTICE - NeraTools TaskManager
+/// ⚠️ HACK NOTICE - NeraXTools TaskManager
 /// ----------------------------------------------------------------------------
 /// Active Tasks/Threads in C# cannot be forcibly cancelled!
 /// - Do NOT try to stop running threads from C#.
@@ -11,12 +11,12 @@
 ///
 /// ============================================================================
 
-using NeraTools.LogManager;
+using NeraXTools.LogManager;
 using System.Diagnostics;
 using System.Security.AccessControl;
 using System.Threading.Channels;
 
-namespace NeraTools.TaskManager
+namespace NeraXTools.TaskManager
 {
 #pragma warning disable CS1591
 
@@ -528,4 +528,4 @@ namespace NeraTools.TaskManager
             }
         }
     } // end of Folder_Ops class
-} // end of NeraTools name
+} // end of NeraXTools name

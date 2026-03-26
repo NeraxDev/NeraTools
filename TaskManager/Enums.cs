@@ -1,4 +1,4 @@
-﻿namespace NeraTools.TaskManager
+﻿namespace NeraXTools.TaskManager
 {
     /// <summary>
     /// CPU resource usage percentage options.

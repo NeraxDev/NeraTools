@@ -1,4 +1,4 @@
-﻿namespace NeraTools
+﻿namespace NeraXTools
 {
     internal static partial class FolderOpsCore
     {
@@ -8,4 +8,4 @@
             Copy
         }
     } // end of Folder_Ops class
-} // end of NeraTools namespace
+} // end of NeraXTools namespace

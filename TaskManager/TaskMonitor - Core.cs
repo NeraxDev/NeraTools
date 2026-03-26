@@ -1,13 +1,13 @@
-﻿using NeraTools.TaskManager.Apps;
+﻿using NeraXTools.TaskManager.Apps;
 using System.Diagnostics;
 using System.IO.Pipes;
 using System.Text;
-using NeraTools.LogManager;
+using NeraXTools.LogManager;
 
-//using NeraTools.TaskManager.Apps;
-//using NeraTools;
+//using NeraXTools.TaskManager.Apps;
+//using NeraXTools;
 
-namespace NeraTools.TaskManager
+namespace NeraXTools.TaskManager
 {
     internal static class TaskMonitorConsoleCore
     {

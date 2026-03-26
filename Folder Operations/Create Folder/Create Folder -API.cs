@@ -1,6 +1,6 @@
-﻿using NeraTools.TaskManager;
+﻿using NeraXTools.TaskManager;
 
-namespace NeraTools
+namespace NeraXTools
 {
     public static partial class FolderOps
     {
@@ -88,7 +88,7 @@ namespace NeraTools
         /// Creates "Logs" folder in all specified directories, only if it does not already exist.
         /// مناسب زمانی که می‌خواهید یک فولدر مشابه در چند مسیر بسازید.
         /// </remarks>
-        public static void CreateFolder_InMultiDirectories(string folderName, params string[] directories) => FolderOpsCore.MakeFolder_Sync(directories.ToList(), new List<string> { folderName });
+        public static void CreateFolderInMultiDirectories(string folderName, params string[] directories) => FolderOpsCore.MakeFolder_Sync(directories.ToList(), new List<string> { folderName });
 
         // =========================
         // Create Folder Methods - Async
@@ -183,4 +183,4 @@ namespace NeraTools
         /// <include file='CommonRemarks.xml' path='doc/members/member[@name="T:CommonRemarks.ParallelAsyncWarning"]/*' />
         public static Task CreateFolderInMultiDirectoriesAsync(string folderName, ePriorityLevel PL = ePriorityLevel.MidLevel, CancellationToken token = default, params string[] directories) => FolderOpsCore.MakeFolder_Async(directories.ToList(), new List<string> { folderName }, PL, token);
     } // end of Folder_Ops class
-} // end of NeraTools namespace
+} // end of NeraXTools namespace

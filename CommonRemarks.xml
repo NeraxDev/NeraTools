@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <doc>
 	<assembly>
-		<name>NeraTools</name>
+		<name>NeraXTools</name>
 	</assembly>
 	<members>
 		<member name="T:CommonRemarks.Async_Warning">
@@ -20,9 +20,9 @@
 				⚠️ Async-Like Methods Notice:
 				This method uses TaskManager to limit concurrency and is not a true async/parallel operation.
 				You can control the maximum number of threads with one of these TaskManager methods:
-				- NeraTools.TaskManager.SetThreadsCount_ByPercent(ThreadUsagePercent percent)
-				- NeraTools.TaskManager.SetThreadsCount_ByCore(int coreCount)
-				- NeraTools.TaskManager.SetThreadsCount_ByThreads(int threadCount)
+				- NeraXTools.TaskManager.SetThreadsCount_ByPercent(ThreadUsagePercent percent)
+				- NeraXTools.TaskManager.SetThreadsCount_ByCore(int coreCount)
+				- NeraXTools.TaskManager.SetThreadsCount_ByThreads(int threadCount)
 
 				Important:
 				- Thread limits apply to this type of async-like operations only and must be set before calling them.

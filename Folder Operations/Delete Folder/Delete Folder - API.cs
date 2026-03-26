@@ -1,4 +1,4 @@
-﻿namespace NeraTools
+﻿namespace NeraXTools
 {
     public static partial class FolderOps
     {
@@ -70,4 +70,4 @@
                             params FolderDeleteOptions[] options)
         => throw null;
     } // end of Folder_Ops class
-} // end of NeraTools namespace
+} // end of NeraXTools namespace
