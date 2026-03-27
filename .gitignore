@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /___InDebugTime/__Debug__.cs
 /___InDebugTime/NewFolder/FileName.cs
+/File Operations/File Operations - API.cs
+/File Operations/File Operations - Core.cs
